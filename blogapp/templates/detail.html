@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}게시물 내용{%endblock%}
+{% block contents %}
+<body>
+    <main role="main" class="container">
+        <div class="row">
+        <div class="blog-post">
+            <h2 class="blog-post-title">{{blog.title}}</h2>
+            <p class="blog-post-meta">{{blog.pub_date}}</p>
+            <p>{{blog.body}}</p>
+        </div>
+        <nav class="blog-pagination">
+            <a class="btn btn-outline-primary" href="{% url 'renew' blog.id %}">update</a>
+            <a class="btn btn-outline-secondary" href="{% url 'delete' blog.id %}" tabindex="-1" aria-disabled="true">delete</a>
+        </nav>
+        </div>
+    </main>
+</body>
+{%endblock%}

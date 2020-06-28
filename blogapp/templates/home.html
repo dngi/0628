@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}이동기 블로그{%endblock%}
+{% block contents %}
+    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 font-italic">Hello, world. I'm Donggi Lee</h1>
+          <p class="lead my-3">html, css 공부를 다시 해야 겠습니다...ㅎ;</p>
+          <!--<p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>-->
+        </div>
+    </div>
+
+    <main role="main" class="container">
+        <div class="row">
+        <div class="col-md-8 blog-main">
+            <h3 class="pb-4 mb-4 font-italic border-bottom">
+              Lists
+            </h3>
+            {% for blog in blogs.all %}
+            <div class="blog-post">
+                <h2 class="blog-post-title">{{blog.title}}</h2>
+                <p class="blog-post-meta">{{blog.pub_date}}</p>
+                <p>{{blog.summary}} <a href="{% url 'detail' blog.id %}">...more</a></p>
+            </div>
+            {%endfor%}
+        </div>
+        </div>
+    </main>
+{%endblock%}
